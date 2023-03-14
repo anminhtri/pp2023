@@ -3,46 +3,65 @@ student_id = []
 dob = []
 course_name = []
 course_id = []
+marks = []
 
 # Student input
-def student_inputs():
+def student_input():
     for i in range(num_student):
-        a = input("Enter student name: ")
-        student_name.append(a)
-        b = input("Enter student's id: ")
-        student_id.append(b)
-        DOB = input("Enter student's dob: ")
-        dob.append(DOB)
+        print("\nStudent number",i+1,":")
+        student_name.append(input("Enter student name: "))
+        student_id.append(input("Enter student's id: "))
+        dob.append(input("Enter student's dob: "))
 
-def student_listing(num_student):
+# Student output
+def student_output(num_student):
     for i in range(num_student):
-        print("Name of student", i+1,": ", student_name[i], "\nID of student", i+1,": ", student_id[i], "\nDOB of student", i+1,": ", dob[i],"\n")
+        print("\nName of student", i+1,": ", student_name[i], "\nID of student", i+1,": ", student_id[i], "\nDOB of student", i+1,": ", dob[i])
 
 # Course input
-def course_inputs():
+def course_input():
     for i in range(num_course):
-        a = input("Enter course name: ")
-        course_name.append(a)
-        b = input("Enter course id: ")
-        course_id.append(b)
+        print("\nCourse number",i+1,":")
+        course_name.append(input("Enter course name: "))
+        course_id.append(input("Enter course id: "))
 
-def course_listing(num_course):
+# Course output
+def course_output(num_course):
     for i in range(num_course):
-        print("Name of course", i+1,": ", course_name[i], "\nId of course", i+1,": ",course_id[i],"\n")
+        print("\nName of course", i+1,":", course_name[i], "\nId of course", i+1,":",course_id[i])
+
+# Marks input
+def marks_input(course_name, student_name):
+    for i in course_name:
+        a = []
+        print("\nMarks for course",i)
+        for j in student_name:
+            print("Student",j,":")
+            a.append(input())
+        marks.append(a)
+
+# Marks output
+def marks_output(num_course, num_student, marks):
+    for i in range(num_course):
+        print("\nMarks for course", course_name[i])
+        for j in range(num_student):
+            print("Student",student_name[j], ":",marks[i][j],"\n")
 
 
-# Test
-# Test the student input functions
-num_student = int(input("Enter the number of student: "))
-student_inputs()
+# Main function
+# Student input
+num_student = int(input("\nEnter the number of student: "))
+student_input()
+# Print students
+student_output(num_student)
 
-# Test the course input functions
-num_course = int(input("Enter the number of course: "))
-course_inputs()
+# Course input
+num_course = int(input("\nEnter the number of course: "))
+course_input()
+# Print course
+course_output(num_course)
 
-# Print list
-print("\n")
-student_listing(num_student)
-course_listing(num_course)
-
-# Select course then input marks for student
+# Input marks
+marks_input(course_name, student_name)
+# Print marks 
+marks_output(num_course, num_student, marks)
